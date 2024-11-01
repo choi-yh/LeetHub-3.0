@@ -1023,7 +1023,8 @@ function isValidSuffix (string) {
 
 LeetCodeV2.prototype.addUrlChangeListener = function () {
   window.navigation.addEventListener('navigate', event => {
-    const problem = window.location.href.match(/leetcode.com\/problems\/(.*)\/submissions/);
+    // const problem = window.location.href.match(/leetcode.com\/problems\/(.*)\/submissions/);
+    const problem = window.location.href.match(/leetcode\.com\/problems\/([^\/?]+)/);
     const submissionId = window.location.href.match(/\/(\d+)(\/|\?|$)/);
     if(problem && problem.length > 1 && submissionId && submissionId.length > 1){
       chrome.storage.local.set({ [problem[1]]: submissionId[1] });
